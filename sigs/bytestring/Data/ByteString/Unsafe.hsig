@@ -1,0 +1,11 @@
+module Data.ByteString.Unsafe where
+
+import Data.ByteString (ByteString)
+import Foreign.C.String (CString)
+import Data.Word (Word8)
+
+unsafeDrop :: Int -> ByteString -> ByteString
+unsafeUseAsCString :: ByteString -> (CString -> IO a) -> IO a
+unsafeTake :: Int -> ByteString -> ByteString
+unsafeIndex :: ByteString -> Int -> Word8
+unsafeHead :: ByteString -> Word8

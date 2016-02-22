@@ -1,0 +1,8 @@
+module Data.ByteString.Lazy.Internal where
+
+import qualified Data.ByteString as S
+
+data ByteString = Empty | Chunk {-# UNPACK #-} !S.ByteString ByteString
+
+chunk :: S.ByteString -> ByteString -> ByteString
+defaultChunkSize :: Int

@@ -1,0 +1,11 @@
+module Data.ByteString.Internal where
+
+import Foreign.ForeignPtr (ForeignPtr)
+import Data.Word (Word8)
+
+data ByteString = PS {-# UNPACK #-} !(ForeignPtr Word8) -- payload
+                     {-# UNPACK #-} !Int                -- offset
+                     {-# UNPACK #-} !Int                -- length
+
+inlinePerformIO :: IO a -> a
+mallocByteString :: Int -> IO (ForeignPtr a)

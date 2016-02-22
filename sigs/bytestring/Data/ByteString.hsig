@@ -1,0 +1,17 @@
+module Data.ByteString(module Data.ByteString, ByteString) where
+
+import Prelude (Bool, Int, IO) -- workaround bug #11642
+import Data.Word (Word8)
+import Data.ByteString.Internal
+import System.IO (Handle)
+
+empty :: ByteString
+append :: ByteString -> ByteString -> ByteString
+null :: ByteString -> Bool
+length :: ByteString -> Int
+splitAt :: Int -> ByteString -> (ByteString, ByteString)
+concat :: [ByteString] -> ByteString
+drop :: Int -> ByteString -> ByteString
+break :: (Word8 -> Bool) -> ByteString -> (ByteString, ByteString)
+
+hGet :: Handle -> Int -> IO ByteString

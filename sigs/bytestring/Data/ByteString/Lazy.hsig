@@ -1,0 +1,13 @@
+module Data.ByteString.Lazy(module Data.ByteString.Lazy, ByteString) where
+
+import Prelude (FilePath, IO)
+import Data.Int (Int64)
+import qualified Data.ByteString as S (ByteString)
+import Data.ByteString.Lazy.Internal
+
+toChunks :: ByteString -> [S.ByteString]
+fromChunks :: [S.ByteString] -> ByteString
+append :: ByteString -> ByteString -> ByteString
+length :: ByteString -> Int64
+
+writeFile :: FilePath -> ByteString -> IO ()
