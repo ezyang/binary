@@ -1,0 +1,8 @@
+module Data.IntMap where
+
+data IntMap a
+
+size :: IntMap a -> Int
+
+toAscList :: IntMap a -> [(Int, a)]
+fromDistinctAscList :: [(Int, a)] -> IntMap a

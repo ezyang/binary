@@ -1,0 +1,10 @@
+{-# LANGUAGE RoleAnnotations #-}
+module Data.Map where
+
+type role Map nominal representational
+data Map k a
+
+size :: Map k a -> Int
+
+toAscList :: Map k a -> [(k, a)]
+fromDistinctAscList :: [(k, a)] -> Map k a

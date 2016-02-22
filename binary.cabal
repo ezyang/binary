@@ -30,15 +30,37 @@ source-repository head
   type: git
   location: git://github.com/kolmodin/binary.git
 
-library binary-indef
-  build-depends: base >= 3.0 && < 5, containers, array
-  hs-source-dirs:  src, sigs/bytestring
+library bytestring-sigs
+  build-depends: base >= 3.0 && < 5
+  hs-source-dirs: sigs/bytestring
   required-signatures:
     Data.ByteString,
     Data.ByteString.Internal,
     Data.ByteString.Unsafe,
     Data.ByteString.Lazy,
     Data.ByteString.Lazy.Internal
+
+library containers-sigs
+  build-depends: base >= 3.0 && < 5
+  hs-source-dirs: sigs/containers
+  required-signatures:
+    Data.IntSet
+    Data.Tree
+    Data.IntMap
+    Data.Set
+    Data.Map
+    Data.Sequence
+
+library array-sigs
+  build-depends: base >= 3.0 && < 5
+  hs-source-dirs: sigs/array
+  required-signatures:
+    Data.Array.Unboxed
+    Data.Array.IArray
+
+library binary-indef
+  build-depends: base >= 3.0 && < 5, bytestring-sigs, containers-sigs, array-sigs
+  hs-source-dirs:  src
   exposed-modules: Data.Binary,
                    Data.Binary.Put,
                    Data.Binary.Get,

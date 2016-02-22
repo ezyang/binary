@@ -1,0 +1,8 @@
+module Data.IntSet where
+
+data IntSet
+
+size :: IntSet -> Int
+
+toAscList :: IntSet -> [Int]
+fromDistinctAscList :: [Int] -> IntSet

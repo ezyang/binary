@@ -1,0 +1,7 @@
+{-# LANGUAGE RoleAnnotations #-}
+module Data.Array.Unboxed(module Data.Array.IArray, module Data.Array.Unboxed) where
+
+import Data.Array.IArray
+
+type role UArray nominal nominal
+data UArray i e

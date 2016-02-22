@@ -1,0 +1,10 @@
+{-# LANGUAGE RoleAnnotations #-}
+module Data.Set where
+
+type role Set nominal
+data Set a
+
+size :: Set a -> Int
+
+toAscList :: Set a -> [a]
+fromDistinctAscList :: [a] -> Set a

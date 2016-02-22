@@ -1,0 +1,21 @@
+{-# LANGUAGE RoleAnnotations #-}
+{-# LANGUAGE FlexibleInstances #-}
+{-# LANGUAGE MultiParamTypeClasses #-}
+{-# LANGUAGE KindSignatures #-}
+{-# LANGUAGE ExplicitForAll #-}
+module Data.Array.IArray(module Data.Array.IArray, module Data.Ix) where
+
+import Prelude (Int)
+import Data.Ix
+
+type role Array nominal representational
+data Array i e
+
+class IArray (a :: * -> * -> *) e
+
+bounds :: (IArray a e) => forall i. Ix i => a i e -> (i, i)
+
+instance IArray Array e
+
+elems :: (IArray a e, Ix i) => a i e -> [e]
+listArray :: (IArray a e, Ix i) => (i, i) -> [e] -> a i e

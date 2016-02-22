@@ -1,0 +1,16 @@
+module Data.Sequence where
+
+import Prelude (Int)
+import Data.Foldable (Foldable)
+
+data Seq a
+
+instance Foldable Seq
+
+infixr 5 <|
+infixl 5 |>
+
+(<|) :: a -> Seq a -> Seq a
+(|>) :: Seq a -> a -> Seq a
+empty :: Seq a
+length :: Seq a -> Int

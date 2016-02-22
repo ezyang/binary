@@ -1,0 +1,4 @@
+module Data.Tree where
+
+data Tree a = Node { rootLabel :: a, subForest :: Forest a }
+type Forest a = [Tree a]
